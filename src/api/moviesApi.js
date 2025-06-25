@@ -1,12 +1,12 @@
 import {
-    API_BASE_URL,
     handleError,
     handleNoContentResponse,
     handleResponse,
     headerAttributes,
 } from './apiUtils';
+import { config } from '../envs/env';
 
-const BASE_URL = '/movies';
+const BASE_URL = config.API_URL + '/movies';
 
 export const fetchAll = (pageNumber) => {
     return fetch(`${BASE_URL}?pageNumber=${pageNumber}`, {
@@ -27,7 +27,7 @@ export const create = movie => {
 };
 
 export const rate = rateRequest => {
-    return fetch(`${BASE_URL}/rate`, {
+    return fetch(`${BASE_URL}/ratings`, {
         method: 'POST',
         headers: {...headerAttributes},
         body: JSON.stringify(rateRequest),

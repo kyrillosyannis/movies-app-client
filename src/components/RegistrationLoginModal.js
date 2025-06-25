@@ -33,7 +33,9 @@ const RegistrationLoginModal = ({
                 refresh();
                 //popup informational message for successful registration
                 if (label === 'Login') {
-                    localStorage.setItem('user', JSON.stringify({ username: response.username, id: response.id }));
+                    localStorage.setItem('user', JSON.stringify({ username: response.username, 
+                        id: response.id, 
+                        token: response.password }));
                 }
             })
     };
